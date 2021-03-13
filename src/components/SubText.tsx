@@ -13,7 +13,8 @@ export default function SubText() {
 
 const TextContainer = styled.div`
 padding-top: 10px;
+color: #575757;
 font-size: 20px;
 font-family: Inter;
-font-weight: 600;
+font-weight: 400;
 `

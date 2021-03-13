@@ -6,7 +6,7 @@ export default function SubText() {
   return (
     <TextContainer>
       <Typist cursor={{hideWhenDone: true, hideWhenDoneDelay: 100}}>
-        hi, i'm <Link href="https://github.com/atn"><a style={{textDecoration: 'none', color: '#0582ff'}}>austin</a></Link>.
+        hi, i'm <Link href="https://github.com/atn"><a style={{textDecoration: 'none', color: '#0582ff'}}>austin</a></Link>
       </Typist>
     </TextContainer>
   )

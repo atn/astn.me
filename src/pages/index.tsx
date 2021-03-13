@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Head } from 'next/document'
 
 import MainText from '../components/Text'
 import SubText from '../components/SubText'
@@ -17,9 +16,11 @@ export default function Index() {
 
 const Container = styled.div`
   min-height: 50vh;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin: 17px;
+  padding: 10px;
   display: flex;
+  border-radius: 40px;
+  background: #f4f4f4;
   flex-direction: column;
   text-align: center;
   justify-content: center;
