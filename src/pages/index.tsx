@@ -16,7 +16,7 @@ export default function Index() {
 
 const Container = styled.div`
   min-height: 50vh;
-  margin: 17px;
+  margin: 20px;
   padding: 10px;
   display: flex;
   border-radius: 40px;

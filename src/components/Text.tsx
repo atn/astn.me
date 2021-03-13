@@ -13,7 +13,7 @@ export default function SubText() {
 }
 
 const TextContainer = styled.div`
-font-size: 50px;
+font-size: 45px;
 font-family: Inter;
 font-weight: 600;
 `
