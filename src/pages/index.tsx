@@ -20,7 +20,6 @@ const Container = styled.div`
   padding: 10px;
   display: flex;
   border-radius: 40px;
-  background: #f4f4f4;
   flex-direction: column;
   text-align: center;
   justify-content: center;
