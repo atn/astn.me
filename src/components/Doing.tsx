@@ -7,12 +7,18 @@ const discord_id = '179742623601393664'
 export default function Doing() {
   const [state, setState] = useState<Presence>()
 
+  async function fetchInitialState() {
+    const res = await fetch(`https://api.lanyard.rest/v1/users/${discord_id}`)
+    const json = await res.json()
+    setState(json.data)
+  }
+
   useEffect(() => {
+    fetchInitialState()
     setInterval(async () => {
       const res = await fetch(`https://api.lanyard.rest/v1/users/${discord_id}`)
       const json = await res.json()
       setState(json.data)
-      console.log(json.data)
     }, 5000)
   }, [])
 
