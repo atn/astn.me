@@ -9,7 +9,6 @@ export default function Index() {
     <>
       <Container>
         <MainText />
-        <SubText />
         <Doing />
       </Container>
     </>
