@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import MainText from '../components/Text'
 import SubText from '../components/SubText'
+import Doing from '../components/Doing'
 
 export default function Index() {
   return (
@@ -9,6 +10,7 @@ export default function Index() {
       <Container>
         <MainText />
         <SubText />
+        <Doing />
       </Container>
     </>
   )
