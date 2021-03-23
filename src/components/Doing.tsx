@@ -6,11 +6,14 @@ const discord_id = '179742623601393664'
 
 export default function Doing() {
   const [state, setState] = useState<Presence>()
+  const [loadingState, setLoading] = useState(false)
 
   async function fetchInitialState() {
+    setLoading(true)
     const res = await fetch(`https://api.lanyard.rest/v1/users/${discord_id}`)
     const json = await res.json()
     setState(json.data)
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -24,11 +27,12 @@ export default function Doing() {
 
   return (
     <>
-    {state && state.activities[0] ? (
-    <Container>
-      <p>currently {state.activities[0].details} in {state.activities[0].name}</p>
-    </Container>
-    ) : null}
+      <Container>
+        {state && state.activities[0] ? (
+          <p>currently {state.activities[0].details} in {state.activities[0].name}</p>
+        ) : null}
+        {loadingState && <p>Loading State...</p>}
+      </Container>
    </>
   ) 
 }
@@ -44,5 +48,5 @@ padding-left: 20px;
 padding-right: 20px;
 display: flex;
 border-radius: 20px;
-background: #f4f4f4;
+background-color: #f4f4f4;
 `
