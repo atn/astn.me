@@ -54,7 +54,7 @@ export default function Doing() {
 const Container = styled.div`
   font-family: Inter;
   background-color: #f4f4f4;
-  padding: 20px;
+  padding: 16px;
   cursor: wait;
   margin-top: 20px;
   border-radius: 20px;
