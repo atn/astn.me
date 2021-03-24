@@ -15,5 +15,6 @@ export default function SubText() {
 const TextContainer = styled.div`
 font-size: 45px;
 font-family: Inter;
+text-align: center;
 font-weight: 600;
 `

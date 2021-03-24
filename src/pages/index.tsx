@@ -21,7 +21,6 @@ const Container = styled.div`
   display: flex;
   border-radius: 40px;
   flex-direction: column;
-  text-align: center;
   justify-content: center;
   align-items: center;
 `;
