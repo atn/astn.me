@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import MainText from '../components/Text'
-import SubText from '../components/SubText'
 import Doing from '../components/Doing'
 
 export default function Index() {

@@ -1,52 +1,100 @@
-import { useEffect, useState } from "react";
-import styled from 'styled-components'
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import { Presence } from '../types/lanyard'
 
-const discord_id = '179742623601393664'
-
 export default function Doing() {
-  const [state, setState] = useState<Presence>()
-  const [loadingState, setLoading] = useState(false)
-
-  async function fetchInitialState() {
-    setLoading(true)
-    const res = await fetch(`https://api.lanyard.rest/v1/users/${discord_id}`)
-    const json = await res.json()
-    setState(json.data)
-    setLoading(false)
-  }
+  const [doing, setDoing] = useState<Presence>();
 
   useEffect(() => {
-    fetchInitialState()
-    setInterval(async () => {
-      const res = await fetch(`https://api.lanyard.rest/v1/users/${discord_id}`)
-      const json = await res.json()
-      setState(json.data)
-    }, 5000)
-  }, [])
+    async function fetchState() {
+      const body = await fetch('https://api.lanyard.rest/v1/users/179742623601393664').then(res => res.json());
+
+      if(body.success) {
+        setDoing(body.data);
+      }
+    }
+    
+    fetchState();
+
+    setInterval(() => {
+      fetchState();
+    }, 2500);
+  }, []);
+
+
+  if(!doing) return null;
 
   return (
     <>
-      <Container>
-        {state && state.activities[0] ? (
-          <p>currently {state.activities[0].details} in {state.activities[0].name}</p>
-        ) : null}
-        {loadingState && <p>Loading State...</p>}
-      </Container>
-   </>
-  ) 
+    {doing.activities[0] &&
+    <Container>
+      <ActivityRow>
+          <ActivityImageContainer>
+            <ActivityImage
+              src={`https://cdn.discordapp.com/app-assets/${doing.activities[0].application_id}/${doing.activities[0].assets.large_image}.png`}
+            />
+            <ActivitySecondaryImage
+              src={`https://cdn.discordapp.com/app-assets/${doing.activities[0].application_id}/${doing.activities[0].assets.small_image}.png`}
+            />
+          </ActivityImageContainer>
+        <ActivityInfo>
+          <h5>{doing.activities[0].name}</h5>
+            {doing.activities[0].details &&
+              <p>{doing.activities[0].details}</p>
+            }
+          {doing.activities[0].state ? <p>{doing.activities[0].state}</p> : null}
+        </ActivityInfo>
+    </ActivityRow>
+  </Container>
+  }
+</>
+  )
 }
 
 const Container = styled.div`
-font-size: 12px;
-font-family: Inter;
-font-weight: 400;
-margin-top: 10px;
-padding-top: 5px;
-padding-bottom: 5px;
-padding-left: 20px;
-padding-right: 20px;
-display: flex;
-border-radius: 20px;
-background-color: #f4f4f4;
-`
+  font-family: Inter;
+  background-color: #f4f4f4;
+  padding: 20px;
+  cursor: wait;
+  margin-top: 20px;
+  border-radius: 20px;
+`;
+
+const ActivityRow = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const ActivityImageContainer = styled.div`
+  position: relative;
+  height: 50px;
+`;
+
+const ActivityImage = styled.img`
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+`;
+
+const ActivitySecondaryImage = styled.img`
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+`;
+
+const ActivityInfo = styled.div`
+  margin-left: 1rem;
+  h5 {
+    margin: 0;
+    font-size: 13px;
+  }
+  p {
+    margin: 0;
+    padding-top: 3px;
+    font-size: 10px;
+  }
+`;
