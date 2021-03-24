@@ -55,12 +55,16 @@ const Container = styled.div`
   font-family: Inter;
   background-color: #f4f4f4;
   padding: 16px;
-  cursor: wait;
+  cursor: pointer;
   margin-top: 20px;
   border-radius: 20px;
 `;
 
 const ActivityRow = styled.div`
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
   display: flex;
   flex-direction: row;
 `;
