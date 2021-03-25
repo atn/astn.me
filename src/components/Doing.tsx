@@ -25,7 +25,7 @@ export default function Doing() {
   }, []);
 
 
-  if(!doing) return null;
+  if (!doing) return null;
 
   return (
     <>
@@ -61,6 +61,9 @@ const Container = styled.div<{theme: string}>`
   cursor: pointer;
   margin-top: 20px;
   border-radius: 20px;
+  &:hover {
+    opacity: 90%;
+  }
 `;
 
 const ActivityRow = styled.div`
@@ -77,12 +80,6 @@ const ActivityImageContainer = styled.div`
   height: 50px;
 `;
 
-const ActivityImage = styled.img`
-  height: 50px;
-  width: 50px;
-  border-radius: 10px;
-`;
-
 const ActivitySecondaryImage = styled.img<{theme: string}>`
   position: absolute;
   bottom: -5px;
@@ -90,7 +87,17 @@ const ActivitySecondaryImage = styled.img<{theme: string}>`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 2px solid ${p => p.theme === 'light' ? '#fff' : '#2e2e2e'};
+  border: 2px solid ${p => p.theme === 'light' ? '#f4f4f4' : '#2e2e2e'};
+`;
+
+const ActivityImage = styled.img`
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+
+  &:hover {
+    opacity: 70%;
+  }
 `;
 
 const ActivityInfo = styled.div`
