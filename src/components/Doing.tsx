@@ -25,7 +25,7 @@ export default function Doing() {
   }, []);
 
 
-  if(!doing || !doing.activities[doing.activities.length - 1].assets|| !doing.activities[doing.activities.length - 1].assets.small_image) return null;
+  if(!doing) return null;
 
   return (
     <>
@@ -34,10 +34,10 @@ export default function Doing() {
       <ActivityRow>
           <ActivityImageContainer>
             <ActivityImage
-              src={`https://cdn.discordapp.com/app-assets/${doing.activities[doing.activities.length - 1].application_id}/${doing.activities[0].assets.large_image}.png`}
+              src={`https://cdn.discordapp.com/app-assets/${doing.activities[doing.activities.length - 1].application_id}/${doing.activities[doing.activities.length - 1].assets.large_image}.png`}
             />
             <ActivitySecondaryImage theme={theme}
-              src={`https://cdn.discordapp.com/app-assets/${doing.activities[doing.activities.length - 1].application_id}/${doing.activities[0].assets.small_image}.png`}
+              src={`https://cdn.discordapp.com/app-assets/${doing.activities[doing.activities.length - 1].application_id}/${doing.activities[doing.activities.length - 1].assets.small_image}.png`}
             />
           </ActivityImageContainer>
         <ActivityInfo>
