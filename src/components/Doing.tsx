@@ -36,7 +36,7 @@ export default function Doing() {
             <ActivityImage
               src={`https://cdn.discordapp.com/app-assets/${doing.activities[0].application_id}/${doing.activities[0].assets.large_image}.png`}
             />
-            <ActivitySecondaryImage
+            <ActivitySecondaryImage theme={theme}
               src={`https://cdn.discordapp.com/app-assets/${doing.activities[0].application_id}/${doing.activities[0].assets.small_image}.png`}
             />
           </ActivityImageContainer>
