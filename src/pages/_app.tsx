@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <NThemeProvider>
+      <NThemeProvider defaultTheme={'dark'} enableSystem={false}>
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>

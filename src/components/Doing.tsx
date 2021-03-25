@@ -19,6 +19,7 @@ export default function Doing() {
     fetchState();
 
     setInterval(() => {
+      console.log(theme)
       fetchState();
     }, 2500);
   }, []);
