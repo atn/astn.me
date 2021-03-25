@@ -25,7 +25,7 @@ export default function Doing() {
   }, []);
 
 
-  if(!doing || !doing.activities[0].assets.large_image || !doing.activities[0].assets.small_image) return null;
+  if(!doing || !doing.activities[doing.activities.length - 1].assets|| !doing.activities[doing.activities.length - 1].assets.small_image) return null;
 
   return (
     <>
@@ -34,18 +34,18 @@ export default function Doing() {
       <ActivityRow>
           <ActivityImageContainer>
             <ActivityImage
-              src={`https://cdn.discordapp.com/app-assets/${doing.activities[0].application_id}/${doing.activities[0].assets.large_image}.png`}
+              src={`https://cdn.discordapp.com/app-assets/${doing.activities[doing.activities.length - 1].application_id}/${doing.activities[0].assets.large_image}.png`}
             />
             <ActivitySecondaryImage theme={theme}
-              src={`https://cdn.discordapp.com/app-assets/${doing.activities[0].application_id}/${doing.activities[0].assets.small_image}.png`}
+              src={`https://cdn.discordapp.com/app-assets/${doing.activities[doing.activities.length - 1].application_id}/${doing.activities[0].assets.small_image}.png`}
             />
           </ActivityImageContainer>
         <ActivityInfo>
-          <h5>{doing.activities[0].name}</h5>
-            {doing.activities[0].details &&
-              <p>{doing.activities[0].details}</p>
+          <h5>{doing.activities[doing.activities.length - 1].name}</h5>
+            {doing.activities[doing.activities.length - 1].details &&
+              <p>{doing.activities[doing.activities.length - 1].details}</p>
             }
-          {doing.activities[0].state ? <p>{doing.activities[0].state}</p> : null}
+          {doing.activities[doing.activities.length - 1].state && <p>{doing.activities[doing.activities.length - 1].state}</p>}
         </ActivityInfo>
     </ActivityRow>
   </Container>
