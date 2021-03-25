@@ -25,7 +25,7 @@ export default function Doing() {
   }, []);
 
 
-  if(!doing) return null;
+  if(!doing || !doing.activities[0].assets.large_image || !doing.activities[0].assets.small_image) return null;
 
   return (
     <>
