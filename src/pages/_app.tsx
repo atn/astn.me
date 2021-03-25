@@ -1,4 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { ThemeProvider as NThemeProvider } from 'next-themes'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -18,9 +19,11 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
+      <NThemeProvider>
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>
+      </NThemeProvider>
     </>
   );
 }

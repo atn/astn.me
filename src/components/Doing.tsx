@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Presence } from '../types/lanyard'
+import { useTheme } from 'next-themes'
 
 export default function Doing() {
   const [doing, setDoing] = useState<Presence>();
+  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
     async function fetchState() {
@@ -27,7 +29,7 @@ export default function Doing() {
   return (
     <>
     {doing.activities[0] &&
-    <Container>
+    <Container theme={theme}>
       <ActivityRow>
           <ActivityImageContainer>
             <ActivityImage
@@ -51,9 +53,9 @@ export default function Doing() {
   )
 }
 
-const Container = styled.div`
+const Container = styled.div<{theme: string}>`
   font-family: Inter;
-  background-color: #f4f4f4;
+  background-color: ${p => p.theme === 'light' ? '#f4f4f4' : '#2e2e2e'};
   padding: 16px;
   cursor: pointer;
   margin-top: 20px;
@@ -80,14 +82,14 @@ const ActivityImage = styled.img`
   border-radius: 10px;
 `;
 
-const ActivitySecondaryImage = styled.img`
+const ActivitySecondaryImage = styled.img<{theme: string}>`
   position: absolute;
   bottom: -5px;
   right: -5px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 2px solid #fff;
+  border: 2px solid ${p => p.theme === 'light' ? '#fff' : '#2e2e2e'};
 `;
 
 const ActivityInfo = styled.div`
