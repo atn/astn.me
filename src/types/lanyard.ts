@@ -1,12 +1,4 @@
-export interface Presence {
-  active_on_discord_mobile: boolean;
-  active_on_discord_desktop: boolean;
-  listening_to_spotify: boolean;
-  spotify: Spotify;
-  discord_user: DiscordUser;
-  discord_status: string;
-  activities: Activity[];
-}
+// ty to tim for types
 
 export interface Activity {
   type: number;

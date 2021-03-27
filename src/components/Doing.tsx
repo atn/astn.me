@@ -1,25 +1,25 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Presence } from '../types/lanyard'
+import {  Activity } from '../types/lanyard'
 import { useTheme } from 'next-themes'
 
 export default function Doing() {
-  const [doing, setDoing] = useState<Presence>();
+  const [doing, setDoing] = useState<Activity>();
   const { theme, setTheme } = useTheme()
 
   useEffect(() => {
     async function fetchState() {
+      // github.com/phineas/lanyard
       const body = await fetch('https://api.lanyard.rest/v1/users/179742623601393664').then(res => res.json());
 
       if(body.success) {
-        setDoing(body.data);
+        setDoing(body.data.activities[body.data.activities.length - 1]);
       }
     }
     
     fetchState();
 
     setInterval(() => {
-      console.log(theme)
       fetchState();
     }, 2500);
   }, []);
@@ -29,27 +29,25 @@ export default function Doing() {
 
   return (
     <>
-    {doing.activities[0] &&
     <Container theme={theme}>
       <ActivityRow>
           <ActivityImageContainer>
             <ActivityImage
-              src={`https://cdn.discordapp.com/app-assets/${doing.activities[doing.activities.length - 1].application_id}/${doing.activities[doing.activities.length - 1].assets.large_image}.png`}
+              src={`https://cdn.discordapp.com/app-assets/${doing.application_id}/${doing.assets.large_image}.png`}
             />
             <ActivitySecondaryImage theme={theme}
-              src={`https://cdn.discordapp.com/app-assets/${doing.activities[doing.activities.length - 1].application_id}/${doing.activities[doing.activities.length - 1].assets.small_image}.png`}
+              src={`https://cdn.discordapp.com/app-assets/${doing.application_id}/${doing.assets.small_image}.png`}
             />
           </ActivityImageContainer>
         <ActivityInfo>
-          <h5>{doing.activities[doing.activities.length - 1].name}</h5>
-            {doing.activities[doing.activities.length - 1].details &&
-              <p>{doing.activities[doing.activities.length - 1].details}</p>
+          <h5>{doing.name}</h5>
+            {doing.details &&
+              <p>{doing.details}</p>
             }
-          {doing.activities[doing.activities.length - 1].state && <p>{doing.activities[doing.activities.length - 1].state}</p>}
+          {doing.state && <p>{doing.state}</p>}
         </ActivityInfo>
     </ActivityRow>
   </Container>
-  }
 </>
   )
 }
