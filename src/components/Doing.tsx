@@ -47,7 +47,6 @@ export default function Doing() {
 }
 
 const Container = styled.div<{theme: string}>`
-  font-family: Inter;
   background-color: ${p => p.theme === 'light' ? '#f4f4f4' : '#2e2e2e'};
   padding: 16px;
   cursor: pointer;
