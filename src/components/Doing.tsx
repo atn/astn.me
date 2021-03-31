@@ -12,23 +12,18 @@ export default function Doing() {
       // github.com/phineas/lanyard
       const body = await fetch('https://api.lanyard.rest/v1/users/179742623601393664').then(res => res.json());
 
-      if(body.success) {
-        setDoing(body.data.activities[body.data.activities.length - 1]);
-      }
+      if(body.success) setDoing(body.data.activities[body.data.activities.length - 1]);
     }
     
     fetchState();
 
-    setInterval(() => {
-      fetchState();
-    }, 2500);
+    setInterval(() => fetchState(), 2500);
   }, []);
 
 
   if (!doing) return null;
 
   return (
-    <>
     <Container theme={theme}>
       <ActivityRow>
           <ActivityImageContainer>
@@ -48,7 +43,6 @@ export default function Doing() {
         </ActivityInfo>
     </ActivityRow>
   </Container>
-</>
   )
 }
 
