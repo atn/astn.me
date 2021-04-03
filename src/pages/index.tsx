@@ -23,6 +23,10 @@ export default function Index() {
 }
 
 const Container = styled.div`
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
   font-family: Inter;
   min-height: 50vh;
   margin: 20px;

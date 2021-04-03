@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes'
 
 export default function Doing() {
   const [doing, setDoing] = useState<Activity>();
-  const { theme, setTheme } = useTheme()
+  const { theme, } = useTheme()
 
   useEffect(() => {
     async function fetchState() {
@@ -58,10 +58,6 @@ const Container = styled.div<{theme: string}>`
 `;
 
 const ActivityRow = styled.div`
-  -webkit-user-select: none;  
-  -moz-user-select: none;    
-  -ms-user-select: none;      
-  user-select: none;
   display: flex;
   flex-direction: row;
 `;
