@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function SubText() {
   return (
     <TextContainer>
-      <Typist cursor={{hideWhenDone: true, hideWhenDoneDelay: 100}}>
+      <Typist>
         hi, i'm <Link href="https://github.com/atn"><a style={{textDecoration: 'none', color: '#0582ff'}}>austin</a></Link>
       </Typist>
     </TextContainer>
@@ -15,5 +15,5 @@ export default function SubText() {
 const TextContainer = styled.div`
 font-size: 40px;
 text-align: center;
-font-weight: 600;
+font-weight: 550;
 `
