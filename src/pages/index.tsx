@@ -17,7 +17,7 @@ export default function Index() {
       <MainText />
       <Doing />
       <Footer />
-      <p onClick={() => toggleTheme()} style={{borderRadius: 10, backgroundColor: (theme === 'light' ? '#e6e6e6' : '#2e2e2e'), position: 'fixed', top: 0, left: 0, marginLeft: 20, padding: 7, fontFamily: 'Inter', cursor: 'pointer'}}>toggle theme</p>
+      <p onClick={() => toggleTheme()} style={{position: 'fixed', top: 0, left: 0, marginLeft: 20, padding: 7, fontFamily: 'Inter', cursor: 'pointer'}}>toggle theme</p>
     </Container>
   )
 }

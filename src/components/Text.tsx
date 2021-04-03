@@ -13,7 +13,7 @@ export default function SubText() {
 }
 
 const TextContainer = styled.div`
-font-size: 45px;
+font-size: 40px;
 text-align: center;
 font-weight: 600;
 `
