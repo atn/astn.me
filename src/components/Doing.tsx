@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import {  Activity } from '../types/lanyard'
+import { Activity } from '../types/lanyard'
 import { useTheme } from 'next-themes'
 
 export default function Doing() {
