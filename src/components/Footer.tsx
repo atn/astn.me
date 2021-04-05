@@ -12,13 +12,13 @@ export default function Footer() {
 }
 
 const FootContainer = styled.footer`
-position: fixed;
-padding: 10px;
-padding-bottom: 15px;
-left: 0;
-bottom: 0;
-width: 100%;
-color: rgb(0, 0, 0);
-text-align: center;
-font-weight: 550;
+  position: fixed;
+  padding: 10px;
+  padding-bottom: 15px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-weight: 550;
 `
