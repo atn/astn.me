@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes'
 
 export default function Doing() {
   const [doing, setDoing] = useState<Activity>();
-  const { theme, } = useTheme()
+  const { theme } = useTheme()
 
   useEffect(() => {
     async function fetchState() {

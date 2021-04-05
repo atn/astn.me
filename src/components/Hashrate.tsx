@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components'
+import { useTheme } from 'next-themes'
 
 interface HashRes {
   hashrate: number,
@@ -9,6 +10,7 @@ interface HashRes {
 
 export default function Hashrate() {
   const [hashState, setHash] = useState<HashRes>()
+  const { theme } = useTheme()
   
   useEffect(() => {
     async function fetchHash() {
@@ -24,7 +26,7 @@ export default function Hashrate() {
   if (!hashState || hashState.online < 1) return null;
 
   return (
-    <Container>
+    <Container theme={theme}>
         current <strong>ETH</strong> hashrate: {(hashState.hashrate / 1000000).toFixed(3)}MH/s
     </Container>
   )
