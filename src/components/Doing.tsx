@@ -53,7 +53,7 @@ const Container = styled.div<{theme: string}>`
   margin-top: 20px;
   border-radius: 20px;
   &:hover {
-    opacity: 90%;
+    opacity: 85%;
   }
 `;
 

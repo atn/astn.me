@@ -3,6 +3,7 @@ import { useTheme } from 'next-themes'
 
 import MainText from '../components/Text'
 import Doing from '../components/Doing'
+import Hashrate from '../components/Hashrate'
 import Footer from '../components/Footer'
 
 export default function Index() {
@@ -16,6 +17,7 @@ export default function Index() {
     <Container>
       <MainText />
       <Doing />
+      <Hashrate />
       <Footer />
       <p onClick={() => toggleTheme()} style={{position: 'fixed', top: 0, left: 0, marginLeft: 20, padding: 7, fontFamily: 'Inter', cursor: 'pointer'}}>toggle theme</p>
     </Container>
