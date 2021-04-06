@@ -15,7 +15,6 @@ export default function Index() {
   return (
     <Container>
       <MainText />
-      <Doing />
       <Hashrate />
       <p onClick={() => toggleTheme()} style={{position: 'fixed', top: 0, left: 0, marginLeft: 20, padding: 7, fontFamily: 'Inter', cursor: 'pointer'}}>toggle theme</p>
     </Container>
