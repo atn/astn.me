@@ -13,11 +13,21 @@ export default function Index() {
   }
 
   return (
-    <div style={{userSelect: 'none'}}>
+    <Container>
       <MainText />
       <Doing />
       <Hashrate />
       <p onClick={() => toggleTheme()} style={{position: 'fixed', top: 0, left: 0, marginLeft: 20, padding: 7, fontFamily: 'Inter', cursor: 'pointer'}}>toggle theme</p>
-    </div>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

@@ -18,7 +18,7 @@ const theme = {
 
 export default function App({ Component, pageProps }) {
   return (
-    <Container>
+    <Init>
       <GlobalStyle />
       <NThemeProvider defaultTheme={'dark'} enableSystem={false}>
       <ThemeProvider theme={theme}>
@@ -26,17 +26,17 @@ export default function App({ Component, pageProps }) {
       </ThemeProvider>
       </NThemeProvider>
       <Footer />
-    </Container>
+    </Init>
   );
 }
 
-const Container = styled.div`
-  font-family: Inter;
-  min-height: 50vh;
-  margin: 20px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
+const Init = styled.div`
+font-family: Inter;
+min-height: 50vh;
+margin: 20px;
+padding: 10px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`
