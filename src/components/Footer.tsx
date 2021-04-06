@@ -6,14 +6,15 @@ export default function Footer() {
     <FootContainer>
       <Link href="https://github.com/atn"><a style={{textDecoration: 'none', color: '#0582ff'}}>GitHub </a></Link>
       -
-      <Link href="mailto:austin@astn.me"><a style={{textDecoration: 'none', color: '#0582ff'}}> Contact</a></Link>
+      <Link href="mailto:austin@astn.me"><a style={{textDecoration: 'none', color: '#0582ff'}}> Contact </a></Link>
+      -
+      <Link href="/crypto"><a style={{textDecoration: 'none', color: '#0582ff'}}> Crypto</a></Link>
     </FootContainer>
   )
 }
 
 const FootContainer = styled.footer`
   position: fixed;
-  padding: 10px;
   padding-bottom: 15px;
   left: 0;
   bottom: 0;
