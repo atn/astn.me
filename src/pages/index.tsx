@@ -22,10 +22,6 @@ export default function Index() {
 }
 
 const Container = styled.div`
-  -webkit-user-select: none;  
-  -moz-user-select: none;    
-  -ms-user-select: none;      
-  user-select: none;
   display: flex;
   flex-direction: column;
   align-items: center;
